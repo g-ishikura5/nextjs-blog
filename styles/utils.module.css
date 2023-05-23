@@ -1,0 +1,120 @@
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.spaceBetween {
+  display: flex;
+  justify-content: space-between;
+}
+
+.blogArea {
+  max-width: 1300px;
+  padding-top: 3rem;
+  margin: auto;
+}
+
+.contentArea {
+  width: calc(100% - 330px);
+  padding: 0 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px;
+}
+
+.blogMessageMinHeihgt {
+  min-height: 400px;
+  background-color: white;
+}
+
+.tagsButton {
+  height: 24px;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+  color: white;
+  background-color: black;
+}
+
+.tagsButton:hover {
+  background-color: darkgray;
+}
+
+.heading2Xl {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.05rem;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.headingXl {
+  font-size: 2rem;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.05rem;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  padding: 20px 0px;
+}
+
+.headingLg {
+  font-size: 2rem;
+  line-height: 1.4;
+  margin-top: 0;
+  font-weight: 500;
+}
+
+.headingMd {
+  text-align: center;
+}
+
+.borderCircle {
+  border-radius: 1000px;
+}
+
+.colorInherit {
+  color: inherit;
+}
+
+.marginTop20px {
+  margin-top: 20px;
+}
+
+.marginTop50px {
+  margin-top: 50px;
+}
+
+.marginLeft50px {
+  margin-left: 50px;
+}
+
+.paddingTop50px {
+  padding-top: 50px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.listItem {
+  margin: 0 0 1.25rem;
+}
+
+.lightText {
+  color: #999;
+}
+
+.boldText {
+  color: black;
+  font-weight: 550;
+}
+
+.headlineArea {
+  width: 300px;
+  height: 300px;
+  border-radius: 12px;
+  background-color: gray;
+}

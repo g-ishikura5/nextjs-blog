@@ -1,0 +1,89 @@
+.container {
+  padding: 0 2rem;
+}
+
+.main {
+  min-height: 100vh;
+  padding: 4rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchInput {
+  padding-top: 30px;
+}
+
+.searchButton {
+  cursor: pointer;
+}
+
+.resetButton {
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.thumbnailImage {
+  width: 440px;
+  height: 220px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 4px 5px 12px black;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.thumbnailImage:hover {
+  transform: translate(4px, 5px);
+  box-shadow: none;
+}
+
+.grid {
+  display: grid;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1400px;
+  gap: 40px;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, 440px);
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 10px;
+  gap: 5px;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.pagination > li {
+  border-radius: 100px;
+  width: 30px;
+  background-color: gray;
+}
+
+.pagination > li > a {
+  color: black;
+  display: block;
+}
+
+.active > a {
+  color: white !important;
+}
+
+.archiveArea {
+  width: 1000px;
+}
+
+.archive {
+  cursor: pointer;
+}
+
+.archive:hover {
+  text-decoration: underline;
+}
