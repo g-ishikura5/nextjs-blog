@@ -38,7 +38,13 @@ const Layout = ({ children }) => {
         FOG({
           el: vantaRef.current,
           THREE: window.THREE,
-          highlightColor: "pink",
+          highlightColor: 0xf53fce,
+          midtoneColor: 0xffff,
+          baseColor: 0x6363eb,
+          blurFactor: 0.68,
+          speed: 2.0,
+          zoom: 0.5,
+          minHeight: 300.0,
         })
       );
     }

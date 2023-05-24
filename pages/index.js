@@ -112,97 +112,112 @@ export default function Home({ allPostsData, allTags, dateCount }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-
-      <div className={`${utilStyles.headingMd} ${utilStyles.paddingTop50px}`}>
-        {displayPostsData.length === 0 ? (
-          <div className={styles.notFound}>記事が見つかりません</div>
-        ) : (
-          <>
-            <div className={styles.grid}>
-              {displayPostsData
-                .slice(
-                  selectedPage * PAGE_PER_POST,
-                  (selectedPage + 1) * PAGE_PER_POST
-                )
-                .map(({ id, title, date, thumbnail, tags }) => (
-                  <article key={id}>
-                    <Link href={`/posts/${id}`}>
-                      <img src={thumbnail} className={styles.thumbnailImage} />
-                    </Link>
-                    <Link legacyBehavior href={`/posts/${id}`}>
-                      <a className={utilStyles.boldText}>{title}</a>
-                    </Link>
-                    <br />
-                    <div className={utilStyles.lightText}>{date}</div>
-                    {tags.map((t) => (
-                      <button
-                        key={t}
-                        className={utilStyles.tagsButton}
-                        onClick={() => onClickTag(t)}
-                      >
-                        {t}
-                      </button>
-                    ))}
-                  </article>
-                ))}
-            </div>
-            <div
-              className={`${utilStyles.center} ${utilStyles.paddingTop50px}`}
-            >
-              <ReactPaginate
-                forcePage={selectedPage}
-                pageCount={Math.ceil(displayPostsData.length / PAGE_PER_POST)}
-                onPageChange={handlePageChange}
-                containerClassName={styles.pagination}
-                activeClassName={styles.active}
-                marginPagesDisplayed={2}
-                pageRangeDisplayed={2}
-                previousLabel={"<"}
-                nextLabel={">"}
-                breakLabel={"..."}
-              />
-            </div>
-          </>
-        )}
-        <hr className={utilStyles.marginTop50px} />
-        <h2>Category</h2>
-        <div className={utilStyles.center}>
-          {allTags.map((t) => (
-            <button
-              key={t}
-              className={utilStyles.tagsButton}
-              onClick={() => setSelectedTag(t)}
-            >
-              {t}
-            </button>
-          ))}
+      <div className={utilStyles.flexCenter}>
+        <div className={styles.breadcrumbList}>
+          <a onClick={onClickReset}>記事一覧</a>
+          {selectedTag && (
+            <>
+              <span className={utilStyles.marginLR10}>{">"}</span>
+              <a>{selectedTag}</a>
+            </>
+          )}
         </div>
-        <div className={`${utilStyles.center} ${styles.searchInput}`}>
-          <input
-            type="text"
-            onInput={(e) => setSearchKeyWord(e.currentTarget.value)}
-            placeholder={"記事を検索"}
-          />
-          <button className={styles.searchButton} onClick={onClickSearch}>
-            検索
-          </button>
-          <button className={styles.resetButton} onClick={onClickReset}>
-            リセット
-          </button>
-        </div>
-        <hr className={utilStyles.marginTop50px} />
-        <h2>Archive (TODO)</h2>
-        <div className={utilStyles.center}>
-          <div className={styles.archiveArea}>
-            {Object.keys(dateCount).map((date) => (
-              <div
-                key={date}
-                className={styles.archive}
-                onClick={() => onClickArchive(date)}
-              >
-                {date} ({dateCount[date]})
+        <div className={utilStyles.headingMd}>
+          {displayPostsData.length === 0 ? (
+            <div className={styles.notFound}>記事が見つかりません</div>
+          ) : (
+            <>
+              <div>
+                {displayPostsData
+                  .slice(
+                    selectedPage * PAGE_PER_POST,
+                    (selectedPage + 1) * PAGE_PER_POST
+                  )
+                  .map(({ id, title, date, thumbnail, tags }) => (
+                    <div key={id} className={styles.grid}>
+                      <Link href={`/posts/${id}`}>
+                        <img
+                          src={thumbnail}
+                          className={styles.thumbnailImage}
+                        />
+                      </Link>
+                      <div className={styles.blogInfo}>
+                        <Link legacyBehavior href={`/posts/${id}`}>
+                          <a className={utilStyles.boldText}>{title}</a>
+                        </Link>
+                        <br />
+                        <div className={utilStyles.lightText}>{date}</div>
+                        {tags.map((t) => (
+                          <button
+                            key={t}
+                            className={utilStyles.tagsButton}
+                            onClick={() => onClickTag(t)}
+                          >
+                            {t}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
               </div>
+              <div
+                className={`${utilStyles.center} ${utilStyles.paddingTop50px}`}
+              >
+                <ReactPaginate
+                  forcePage={selectedPage}
+                  pageCount={Math.ceil(displayPostsData.length / PAGE_PER_POST)}
+                  onPageChange={handlePageChange}
+                  containerClassName={styles.pagination}
+                  activeClassName={styles.active}
+                  marginPagesDisplayed={2}
+                  pageRangeDisplayed={2}
+                  previousLabel={"<"}
+                  nextLabel={">"}
+                  breakLabel={"..."}
+                />
+              </div>
+            </>
+          )}
+          <hr className={utilStyles.marginTop50px} />
+          <h2>Category</h2>
+          <div className={utilStyles.center}>
+            {allTags.map((t) => (
+              <button
+                key={t}
+                className={utilStyles.tagsButton}
+                onClick={() => setSelectedTag(t)}
+              >
+                {t}
+              </button>
             ))}
+          </div>
+          <div className={`${utilStyles.center} ${styles.searchInput}`}>
+            <input
+              type="text"
+              onInput={(e) => setSearchKeyWord(e.currentTarget.value)}
+              placeholder={"記事を検索"}
+            />
+            <button className={styles.searchButton} onClick={onClickSearch}>
+              検索
+            </button>
+            <button className={styles.resetButton} onClick={onClickReset}>
+              リセット
+            </button>
+          </div>
+          <hr className={utilStyles.marginTop50px} />
+          <h2>Archive (TODO)</h2>
+          <div className={utilStyles.center}>
+            <div className={styles.archiveArea}>
+              {Object.keys(dateCount).map((date) => (
+                <div
+                  key={date}
+                  className={styles.archive}
+                  onClick={() => onClickArchive(date)}
+                >
+                  {date} ({dateCount[date]})
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

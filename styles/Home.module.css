@@ -12,6 +12,13 @@
   align-items: center;
 }
 
+.breadcrumbList {
+  cursor: pointer;
+  color: rgb(25, 0, 255);
+  margin-top: 20px;
+  width: 800px;
+}
+
 .searchInput {
   padding-top: 30px;
 }
@@ -26,8 +33,8 @@
 }
 
 .thumbnailImage {
-  width: 440px;
-  height: 220px;
+  width: 320px;
+  height: 180px;
   margin-bottom: 20px;
   border-radius: 12px;
   box-shadow: 4px 5px 12px black;
@@ -41,13 +48,16 @@
 }
 
 .grid {
-  display: grid;
+  width: 100%;
+  display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  max-width: 1400px;
-  gap: 40px;
-  margin: 0 auto;
-  grid-template-columns: repeat(auto-fit, 440px);
+  margin-top: 40px;
+  gap: 50px;
+}
+
+.blogInfo {
+  width: 400px;
+  text-align: left;
 }
 
 .pagination {
