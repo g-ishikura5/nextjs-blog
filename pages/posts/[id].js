@@ -61,6 +61,7 @@ const Post = ({ postData }) => {
 
             <div
               dangerouslySetInnerHTML={{ __html: postData.blobContentHTML }}
+              className={utilStyles.post}
             ></div>
           </article>
         </div>

@@ -122,24 +122,28 @@
 
 .post {
   padding: 10px 20px;
+
+  & > h1 {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 40px 0 16px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  & > h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 40px 0 16px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  & > p {
+    line-height: 1.8;
+    letter-spacing: 0.2px;
+  }
+
+  & > ol {
+    list-style-type: decimal;
+    list-style-position: inside;
+  }
 }
-.post > h1 {
-  font-size: 32px;
-  font-weight: bold;
-  margin: 40px 0 16px;
-  border-bottom: 1px solid #ddd;
-}
-.post > h2 {
-  font-size: 24px;
-  font-weight: bold;
-  margin: 40px 0 16px;
-  border-bottom: 1px solid #ddd;
-}
-.post > p {
-  line-height: 1.8;
-  letter-spacing: 0.2px;
-}
-.post > ol {
-  list-style-type: decimal;
-  list-style-position: inside;
-}/*# sourceMappingURL=utils.module.css.map */
