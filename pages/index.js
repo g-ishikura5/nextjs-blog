@@ -122,11 +122,11 @@ export default function Home({ allPostsData, allTags, dateCount }) {
             </>
           )}
         </div>
-        <div className={utilStyles.headingMd}>
+        <div className={`${utilStyles.headingMd} ${utilStyles.center}`}>
           {displayPostsData.length === 0 ? (
             <div className={styles.notFound}>記事が見つかりません</div>
           ) : (
-            <>
+            <div>
               <div>
                 {displayPostsData
                   .slice(
@@ -176,48 +176,46 @@ export default function Home({ allPostsData, allTags, dateCount }) {
                   breakLabel={"..."}
                 />
               </div>
-            </>
+            </div>
           )}
-          <hr className={utilStyles.marginTop50px} />
-          <h2>Category</h2>
-          <div className={utilStyles.center}>
-            {allTags.map((t) => (
-              <button
-                key={t}
-                className={utilStyles.tagsButton}
-                onClick={() => setSelectedTag(t)}
-              >
-                {t}
-              </button>
-            ))}
-          </div>
-          <div className={`${utilStyles.center} ${styles.searchInput}`}>
-            <input
-              type="text"
-              onInput={(e) => setSearchKeyWord(e.currentTarget.value)}
-              placeholder={"記事を検索"}
-            />
-            <button className={styles.searchButton} onClick={onClickSearch}>
-              検索
-            </button>
-            <button className={styles.resetButton} onClick={onClickReset}>
-              リセット
-            </button>
-          </div>
-          <hr className={utilStyles.marginTop50px} />
-          <h2>Archive (TODO)</h2>
-          <div className={utilStyles.center}>
-            <div className={styles.archiveArea}>
-              {Object.keys(dateCount).map((date) => (
-                <div
-                  key={date}
-                  className={styles.archive}
-                  onClick={() => onClickArchive(date)}
+          <div>
+            <h2>Category</h2>
+            <div className={styles.categoryArea}>
+              {allTags.map((t) => (
+                <button
+                  key={t}
+                  className={utilStyles.tagsButton}
+                  onClick={() => setSelectedTag(t)}
                 >
-                  {date} ({dateCount[date]})
-                </div>
+                  {t}
+                </button>
               ))}
             </div>
+            <div className={`${utilStyles.center} ${styles.searchInput}`}>
+              <input
+                type="text"
+                onInput={(e) => setSearchKeyWord(e.currentTarget.value)}
+                placeholder={"記事を検索"}
+              />
+              <button className={styles.searchButton} onClick={onClickSearch}>
+                検索
+              </button>
+            </div>
+            <h2>Archive</h2>
+            <div className={utilStyles.center}>
+              <div className={styles.archiveArea}>
+                {Object.keys(dateCount).map((date) => (
+                  <div
+                    key={date}
+                    className={styles.archive}
+                    onClick={() => onClickArchive(date)}
+                  >
+                    {date} ({dateCount[date]})
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* TODO: 人気記事とか追加したら良さそう */}
           </div>
         </div>
       </div>

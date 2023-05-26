@@ -16,7 +16,7 @@
   cursor: pointer;
   color: rgb(25, 0, 255);
   margin-top: 20px;
-  width: 800px;
+  width: 980px;
 }
 
 .searchInput {
@@ -86,8 +86,12 @@
   color: white !important;
 }
 
+.categoryArea {
+  width: 220px;
+}
+
 .archiveArea {
-  width: 1000px;
+  width: 120px;
 }
 
 .archive {
